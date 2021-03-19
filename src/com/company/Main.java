@@ -16,10 +16,12 @@ import java.util.stream.Stream;
 
 public class Main {
 
+    //Одна функция, которая выполняет любую операцию над двумя числами
     public static double calculate(double a, double b, BiFunction<Double, Double, Double> function) {
         return function.apply(a, b);
     }
 
+    //Распарсить запрос на переменная - значение, игнорировать значения null
     public static String z2208() {
         List<String> list = Arrays.asList("name", "Ivanov", "country", "Ukraine", "city", "Kiev", "age", null);
         String result = "";
@@ -31,15 +33,16 @@ public class Main {
         return result.substring(0, result.length() - 4);
     }
 
+    //Взять от строки только числа без букв
     public static void z1908() {
         String file1 = "12 text var2 14 8v 1";
-        String file2 = Arrays.asList(file1.split(" "))
-                .stream()
+        String file2 = Arrays.stream(file1.split(" "))
                 .filter(s -> s.matches("^\\d+$"))
                 .collect(Collectors.joining(" "));
         System.out.println(file2);
     }
 
+    //Подсчитать количество слов в тексте
     public static void z1907() {
         String file1 = "The ASCII table was created for the exchange of information via teletype. The set included non-printable characters used as commands to control the TTY. Similar commands were used in other pre-computer messaging tools (Morse code, semaphore alphabet), taking into account the specifics of the device.\n" +
                 "Most of the ASCII control characters soon lost their purpose and are not used in modern computer systems.";
@@ -47,6 +50,7 @@ public class Main {
         System.out.println(count);
     }
 
+    //Считать с клавиатуры несколько строк, составить частотный словарь на основе этих строк
     public static void z1016() {
         Scanner scanner = new Scanner(System.in);
         HashMap<String, Integer> hashMap = new HashMap<>();
@@ -59,6 +63,7 @@ public class Main {
         hashMap.forEach((key,v) -> System.out.println(key + ":\t" + v));
     }
 
+    //Распарсить текст на символы, составить частотный словарь на основе символов
     public static void z1821() {
         String file1 = "The ASCII table was created for the exchange of information via teletype. The set included non-printable characters used as commands to control the TTY. Similar commands were used in other pre-computer messaging tools (Morse code, semaphore alphabet), taking into account the specifics of the device.\n" +
                 "Most of the ASCII control characters soon lost their purpose and are not used in modern computer systems.";
@@ -76,6 +81,8 @@ public class Main {
         }
     }
 
+
+    //Распасрить текст на слова через пробел, в новой строке должны быть эти слова, длина которых больше 6, деление через ','
     public static void z1925() {
         String file1 = "The ASCII table was created for the exchange of information via teletype";
         String file2 = Arrays.stream(file1.split(" "))
